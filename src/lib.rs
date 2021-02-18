@@ -53,7 +53,7 @@ fn shrink<T>(slice: &mut &mut [T], len: usize) {
 /// >                ; any VCHAR, except delimiters
 /// > ```
 #[inline]
-fn is_token(b: u8) -> bool {
+pub fn is_token(b: u8) -> bool {
     b > 0x1F && b < 0x7F
 }
 
@@ -89,7 +89,7 @@ static URI_MAP: [bool; 256] = byte_map![
 ];
 
 #[inline]
-fn is_uri_token(b: u8) -> bool {
+pub fn is_uri_token(b: u8) -> bool {
     URI_MAP[b as usize]
 }
 
@@ -113,7 +113,7 @@ static HEADER_NAME_MAP: [bool; 256] = byte_map![
 ];
 
 #[inline]
-fn is_header_name_token(b: u8) -> bool {
+pub fn is_header_name_token(b: u8) -> bool {
     HEADER_NAME_MAP[b as usize]
 }
 
@@ -138,7 +138,7 @@ static HEADER_VALUE_MAP: [bool; 256] = byte_map![
 
 
 #[inline]
-fn is_header_value_token(b: u8) -> bool {
+pub fn is_header_value_token(b: u8) -> bool {
     HEADER_VALUE_MAP[b as usize]
 }
 

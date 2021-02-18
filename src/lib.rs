@@ -54,7 +54,7 @@ fn shrink<T>(slice: &mut &mut [T], len: usize) {
 /// > ```
 #[inline]
 pub fn is_token(b: u8) -> bool {
-    b > 0x1F && b < 0x7F
+    b > 0x20 && b < 0x7F
 }
 
 // ASCII codes to accept URI string.
